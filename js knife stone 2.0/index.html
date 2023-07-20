@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+  <div class="present"> 
+    <h1>Игра Камень Ножницы Бумага</h1>
+    <div id="textFildBot"> Бот выбрал: </div>
+  <div id="textFild"></div>
+ 
+  </div>
+  <div class="text1"> Выбирай  </div>
+  <div class="wrapper">
+  <button class= "Rock"> rock </button>
+  <button class= "Paper"> paper </button>
+  <button class= "Scissors"> scissor </button>
+</div>
+<script >
+  /*  Скрипт работы кнопки и сравнения данных с рандома и выбором человека человека*/
+  /* фунеция клика и запуск функции сравнения выбора человека и рандомайзера */
+  const buttonRock = document.querySelector('.Rock');
+  function handleClick1() {
+  const playerSelection = "Rock";
+  const computerSelection = getComputerChoice(myArray);
+/* скрипт вывода на экран рандом слова*/
+  const resultDivBot = document.querySelector('#textFildBot');
+  resultDivBot.textContent = computerSelection;
+  playRound(playerSelection, computerSelection);
+}  buttonRock.addEventListener(`click`, handleClick1);
+
+/* фунеция клика и запуск функции сравнения выбора человека и рандомайзера */
+  const buttonPaper = document.querySelector('.Paper');
+  function handleClick2() {
+  const playerSelection = "Paper";
+  const computerSelection = getComputerChoice(myArray);
+/* скрипт вывода на экран рандом слова*/
+  const resultDivBot = document.querySelector('#textFildBot');
+  resultDivBot.textContent = computerSelection;
+  playRound(playerSelection, computerSelection);
+}  buttonPaper.addEventListener(`click`, handleClick2);
+
+/* фунеция клика и запуск функции сравнения выбора человека и рандомайзера */
+  const buttonScissor = document.querySelector('.Scissors');
+  function handleClick3() {
+  const playerSelection = "Scissors";
+  const computerSelection = getComputerChoice(myArray);
+  /* скрипт вывода на экран рандом слова*/
+  const resultDivBot = document.querySelector('#textFildBot');
+  resultDivBot.textContent = computerSelection;
+  playRound(playerSelection, computerSelection);
+}  buttonScissor.addEventListener(`click`, handleClick3);
+
+/* Вывод текст на экран */
+  const resultDivBot = document.getElementById("textFildBot");
+  const resultDiv = document.getElementById("textFild");
+
+/* функция рандома*/
+function getComputerChoice(array) {
+    const rand = Math.random() * array.length | 0;
+    const rValue = array[rand]
+    return rValue
+}
+const myArray = ["Rock", "Paper", "Scissors"];
+const rValue = getComputerChoice(myArray)  
+
+/*функция сравнения */ 
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        resultDiv.textContent = "ничья";
+    } else if (computerSelection == "Paper") {
+        resultDiv.textContent = "Ты победил!";
+    } else if (computerSelection == "Scissors") {
+        resultDiv.textContent = "Ты проиграл";
+    } 
+
+}
+
+
+
+  </script>
+</body>
+</html>
